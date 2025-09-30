@@ -1,0 +1,31 @@
+body{
+    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(135deg, #4c1d95 0%, #6d28d9 40%, #7c3aed 100%);
+    color:#f3e8ff;
+}
+
+#content-wrap{
+    display: none;
+}
+
+#chat{
+    height: 480px;
+}
+
+.msg-area{
+    border-radius: 8px;
+}
+
+.msg{
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+.salir:hover{
+    cursor: pointer;
+}
+
+.enlace-salir{
+    color:#a78bfa;
+}

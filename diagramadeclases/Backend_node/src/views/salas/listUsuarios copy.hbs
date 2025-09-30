@@ -1,0 +1,81 @@
+<div class="min-h-screen bg-gray-100 p-6">
+  <div class="max-w-5xl mx-auto space-y-6">
+
+    <!-- Buscador -->
+    <div class="bg-white rounded-xl shadow p-4 flex items-center gap-3">
+      <i class="bx bx-search text-gray-400 text-xl"></i>
+      <input type="text" id="search-users" placeholder="Buscar usuario..."
+        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none text-sm">
+    </div>
+
+    <!-- Listado de usuarios -->
+    <div id="users-grid" class="grid md:grid-cols-3 sm:grid-cols-2 gap-6">
+      {{#each users}}
+      <div
+        class="user-card bg-white rounded-xl shadow hover:scale-105 transform transition duration-300 p-4 flex flex-col items-center text-center"
+        data-username="{{username}}">
+
+        <!-- Avatar -->
+        <div class="w-16 h-16 mb-2">
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/020/911/729/non_2x/profile-icon-avatar-icon-user-icon-person-icon-free-png.png"
+            alt="{{username}}" class="w-full h-full rounded-full border border-gray-200 object-cover">
+        </div>
+
+        <!-- Nombre y correo -->
+        <h3 class="text-blue-600 font-semibold text-sm flex items-center gap-1">
+          <i class="bx bx-user-circle text-lg"></i> {{username}}
+        </h3>
+        <p class="text-gray-700 text-xs truncate">{{correo}}</p>
+
+        <!-- Botones -->
+        <div class="flex gap-2 mt-3 flex-wrap justify-center w-full">
+          <button type="button" onclick="generarCodigo('{{id}}', '{{username}}')"
+            class="flex items-center justify-center gap-1 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium py-1 px-2 rounded-lg shadow transition">
+            <i class="bx bx-share-alt"></i> Compartir
+          </button>
+
+          <a href="/salas/edit/{{id}}"
+            class="flex items-center justify-center gap-1 bg-gray-500 hover:bg-gray-600 text-white text-xs font-medium py-1 px-2 rounded-lg shadow transition">
+            <i class="bx bx-edit-alt"></i> Editar
+          </a>
+
+          <a href="/salas/delete/{{id}}"
+            class="flex items-center justify-center gap-1 bg-red-600 hover:bg-red-700 text-white text-xs font-medium py-1 px-2 rounded-lg shadow transition">
+            <i class="bx bx-trash"></i> Eliminar
+          </a>
+        </div>
+      </div>
+      {{else}}
+      <div class="col-span-3 mx-auto bg-white rounded-xl shadow p-6 text-center">
+        <p class="text-gray-600 mb-3">No hay usuarios disponibles.</p>
+        <a href="/salas/add"
+          class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-4 rounded-lg shadow transition">
+          <i class="bx bx-plus"></i> Crea Uno!
+        </a>
+      </div>
+      {{/each}}
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // Buscador dinámico
+  const searchInput = document.getElementById('search-users');
+  const userCards = document.querySelectorAll('.user-card');
+
+  searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase();
+    userCards.forEach(card => {
+      const username = card.dataset.username.toLowerCase();
+      card.style.display = username.includes(query) ? 'flex' : 'none';
+    });
+  });
+
+  // Función de compartir: simula generar código
+  function generarCodigo(id, username) {
+    const code = `Compartido con ${username} (ID: ${id})`;
+    alert(code); // Aquí podrías copiar al portapapeles o enviar al backend
+  }
+</script>

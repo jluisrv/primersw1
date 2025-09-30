@@ -1,0 +1,62 @@
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=5,IE=9" ><![endif]-->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>UML Diagram</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+  <!-- Boxicons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@4.1.3/dist/tesseract.min.js"></script>
+
+
+  <!-- Estilo original del editor -->
+  <link rel="stylesheet" type="text/css" href="styles/grapheditor.css">
+
+  <!-- URL parameters parser -->
+  <script type="text/javascript">
+    var urlParams = (function (url) {
+      var result = {};
+      var idx = url.lastIndexOf('?');
+      if (idx > 0) {
+        var params = url.substring(idx + 1).split('&');
+        for (var i = 0; i < params.length; i++) {
+          var eqIdx = params[i].indexOf('=');
+          if (eqIdx > 0) {
+            result[params[i].substring(0, eqIdx)] = params[i].substring(eqIdx + 1);
+          }
+        }
+      }
+      return result;
+    })(window.location.href);
+
+    mxBasePath = 'js/__globals__/mxgraph/src';
+    mxLoadResources = false;
+  </script>
+
+  <!-- Scripts del editor MXGraph -->
+  <script type="text/javascript" src="js/__globals__/Init.js"></script>
+  <script type="text/javascript" src="js/__globals__/jscolor/jscolor.js"></script>
+  <script type="text/javascript" src="js/__globals__/sanitizer/sanitizer.min.js"></script>
+  <script type="text/javascript" src="js/__globals__/mxgraph/mxClient.js"></script>
+  <script type="text/javascript" src="js/__globals__/Editor.js"></script>
+  <script type="text/javascript" src="js/__globals__/Graph.js"></script>
+  <script type="text/javascript" src="js/__globals__/Shapes.js"></script>
+  <script type="text/javascript" src="js/__globals__/Dialogs.js"></script>
+</head>
+
+<body class="geEditor bg-gray-100 text-gray-800" style="font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
+  <!-- Aquí se renderiza el editor UML de clases -->
+</body>
+
+</html>
